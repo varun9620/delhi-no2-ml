@@ -105,14 +105,6 @@ jupyter notebook notebooks/Delhi_ML.ipynb
 If the environment variables aren't set, the notebook defaults to
 `./data`, `./models`, `./figures` relative to the repo.
 
-## Notes
-
-- All cell outputs were cleared before committing (dataframe previews /
-  printed arrays could otherwise leak private data into the public repo —
-  re-run the notebook locally to regenerate them).
-- A couple of paths (e.g. the LSTM model save path) landed under `DATA_DIR`
-  after the automatic path cleanup — worth double-checking `MODEL_DIR` is
-  used consistently for model artifacts before you push.
 
 ## License
 
