@@ -22,8 +22,29 @@ predictors, to produce continuous, high-resolution NO2 estimates over the Delhi 
 - Seasonal and spatial visualization with `cartopy`/`matplotlib`
 - Fully reproducible: no hardcoded personal paths, data-agnostic via env vars
 
-*(Add: model performance numbers — R² / RMSE / MAE on held-out test data — and a
-results figure or two once you're ready to publish; recruiters skim this section first.)*
+## Results
+
+**Final stacked model:** R² = **0.779**, MAE = **6.82 µg/m³**
+
+| Base model | Best R² |
+|---|---|
+| Random Forest | 0.508 |
+| XGBoost | 0.508 |
+| LightGBM | 0.545 |
+| Stacked meta-learner (LightGBM) | **0.779** |
+
+Stacking the four base learners lifts R² from ~0.51 (best single model) to 0.78 —
+the meta-learner captures complementary error patterns across tree-based and
+sequence models.
+
+![Delhi NO2 climatology](figures/delhi_no2_climatology.png)
+*Annual NO2 climatology (2019–2024) over Delhi, downscaled to 90m with CPCB ground
+stations overlaid.*
+
+![NO2 validation map](figures/no2_validation_delhi_90m.png)
+*Model validation output at 90m resolution across Delhi.*
+
+Best hyperparameters per base model are in [`best_hyperparams.csv`](best_hyperparams.csv).
 
 ## Tech stack
 
@@ -99,5 +120,5 @@ MIT — see [LICENSE](LICENSE).
 
 ## Author
 
-**Varun Katoch** — [LinkedIn:https://www.linkedin.com/in/varun-k-108a68170] ·varunkatoch.katoch@gmail.com
+**[Your Name]** — [LinkedIn] · [email] · [portfolio site]
 

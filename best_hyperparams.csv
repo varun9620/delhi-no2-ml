@@ -1,0 +1,2 @@
+Random Forest,XGBoost,LightGBM,LSTM
+"{'max_depth': 13, 'min_samples_leaf': 3, 'min_samples_split': 9, 'n_estimators': 166}","{'learning_rate': 0.1451497755908629, 'max_depth': 6, 'n_estimators': 138, 'subsample': 0.9862528132298237}","{'learning_rate': 0.07983140212909126, 'max_depth': 17, 'n_estimators': 239, 'num_leaves': 12}","{'model__units': 128, 'model__learning_rate': 0.01, 'model__dropout_rate': 0.3, 'epochs': 20, 'batch_size': 32}"
