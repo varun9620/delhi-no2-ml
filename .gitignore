@@ -1,0 +1,32 @@
+# ---- Private data (never commit) ----
+data/*
+models/*
+figures/*
+!data/.gitkeep
+!models/.gitkeep
+!figures/.gitkeep
+*.csv
+*.nc
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.keras
+*.pkl
+*.h5
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.env
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
