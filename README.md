@@ -120,5 +120,5 @@ MIT — see [LICENSE](LICENSE).
 
 ## Author
 
-**[Your Name]** — [LinkedIn] · [email] · [portfolio site]
+**Varun Katoch** — [LinkedIn:https://www.linkedin.com/in/varun-k-108a68170] ·varunkatoch.katoch@gmail.com
 
