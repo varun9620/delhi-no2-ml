@@ -5,8 +5,8 @@ ensemble of ML/DL models, trained on ground station, satellite, and reanalysis d
 
 > Data-fusion pipeline combining CPCB ground monitoring, ERA5 reanalysis, TROPOMI
 > satellite NO2, night-light, land-use, elevation, population, road-density and NDVI
-> covariates into a Random Forest / XGBoost / LightGBM / LSTM stacked-ensemble model,
-> to estimate NO2 at 90m resolution across Delhi (2019–2024).
+> covariates into a Linear Regression / Random Forest / XGBoost / LightGBM / DNN / LSTM
+> stacked-ensemble model, to estimate NO2 at 90m resolution across Delhi (2019–2024).
 
 ## Overview
 
@@ -18,7 +18,7 @@ predictors, to produce continuous, high-resolution NO2 estimates over the Delhi 
 
 **Highlights:**
 - 15+ geospatial/meteorological covariates fused via `xarray` across 6 years of data
-- Stacked ensemble: Random Forest, XGBoost, LightGBM, LSTM → LightGBM meta-learner
+- Stacked ensemble: Linear Regression, Random Forest, XGBoost, LightGBM, DNN, LSTM → LightGBM meta-learner
 - Seasonal and spatial visualization with `cartopy`/`matplotlib`
 - Fully reproducible: no hardcoded personal paths, data-agnostic via env vars
 
@@ -28,14 +28,18 @@ predictors, to produce continuous, high-resolution NO2 estimates over the Delhi 
 
 | Base model | Best R² |
 |---|---|
+| Linear Regression | 0.500 |
 | Random Forest | 0.508 |
 | XGBoost | 0.508 |
+| DNN | 0.520 |
 | LightGBM | 0.545 |
 | Stacked meta-learner (LightGBM) | **0.779** |
 
-Stacking the four base learners lifts R² from ~0.51 (best single model) to 0.78 —
-the meta-learner captures complementary error patterns across tree-based and
-sequence models.
+Stacking the six base learners lifts R² from ~0.55 (best single model) to 0.78 —
+the meta-learner captures complementary error patterns across the linear, tree-based,
+and neural models. Linear Regression and the DNN don't outperform the tree ensembles
+on their own, but their errors are only weakly correlated with the tree models', which
+is what gives the meta-learner useful signal to combine.
 
 ![Delhi NO2 climatology](figures/delhi_no2_climatology.png)
 *Annual NO2 climatology (2019–2024) over Delhi, downscaled to 90m with CPCB ground
@@ -113,4 +117,3 @@ MIT — see [LICENSE](LICENSE).
 ## Author
 
 **Varun Katoch** — [LinkedIn:https://www.linkedin.com/in/varun-k-108a68170] ·varunkatoch.katoch@gmail.com
-
