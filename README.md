@@ -31,7 +31,7 @@ predictors, to produce continuous, high-resolution NO2 estimates over the Delhi 
 | Linear Regression | 0.500 |
 | Random Forest | 0.508 |
 | XGBoost | 0.508 |
-| DNN | 0.520 |
+| LSTM | 0.520 |
 | LightGBM | 0.545 |
 | Stacked meta-learner (LightGBM) | **0.779** |
 
